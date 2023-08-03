@@ -1,8 +1,15 @@
 import express, {Request, Response, NextFunction} from 'express';
+import { CreateVandor, GetVandors, GetVandorByID } from '../controllers';
 
 const router = express.Router();
 
-router.use("/", (req:Request ,res:Response, next: NextFunction)=>{   
+router.post("/vandor", CreateVandor)
+
+router.get("/vandors", GetVandors)
+
+router.get("/vandor/:id", GetVandorByID)
+
+router.get("/", (req:Request ,res:Response, next: NextFunction)=>{   
     res.json("Hello from Admin!")
 })
 
